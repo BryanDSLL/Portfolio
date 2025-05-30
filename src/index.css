@@ -19,6 +19,23 @@ body {
   min-height: 100vh;
 }
 
+@layer utilities {
+  .animated-gradient-bg {
+    background: linear-gradient(-45deg, #0f172a, #3b0764, #0f766e, #0f172a);
+    background-size: 400% 400%;
+    animation: gradientMove 8s ease infinite;
+  }
+
+  @keyframes gradientMove {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+}
+
 
 
 
