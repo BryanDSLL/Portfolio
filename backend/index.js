@@ -8,22 +8,26 @@ process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
 const app = express();
 app.use(bodyParser.json());
-app.use(cors({ origin: "http://localhost:3000" }));
+app.use(cors());
 
-// Contextos em memória (por usuário)
 const contextos = {};
 
 app.post("/chat", async (req, res) => {
   const { userId, mensagem } = req.body;
   if (!userId || !mensagem) return res.status(400).json({ error: "Faltam dados" });
-
-  if (!contextos[userId]) contextos[userId] = [];
+  
+  if (!contextos[userId]) {
+    contextos[userId] = [
+      { role: "system", content: "Você é o GepettoAI, um assistente de IA inteligente e prestativo. Você utiliza servidores da META (Llama) para processar as informações. Seu objetivo é ser um assistente versátil e ajudar os usuários com múltiplas tarefas, desde perguntas simples até questões complexas. Sempre se identifique como GepettoAI quando perguntado sobre quem você é. Responda sempre em português de forma clara, educada e objetiva. IMPORTANTE: Organize suas respostas em tópicos usando marcadores (-) ou listas numeradas sempre que possível para facilitar o entendimento. Use quebras de linha e espaçamento adequado. Quando o usuário enviar arquivos, analise seu conteúdo e forneça feedback útil. Quando criar código ou conteúdo que pode ser salvo como arquivo, use blocos de código com a linguagem apropriada (```linguagem) para que o usuário possa fazer download facilmente." }
+    ];
+  }
   contextos[userId].push({ role: "user", content: mensagem });
-
-  // Adapta para o payload do OpenRouter (compatível com OpenAI)
+  
   const payload = {
-    model: "meta-llama/llama-3-8b-instruct", // ou outro modelo suportado
-    messages: contextos[userId].map(m => ({ role: m.role, content: m.content }))
+    model: "meta-llama/llama-3-8b-instruct",
+    messages: contextos[userId].map(m => ({ role: m.role, content: m.content })),
+    temperature: 0.5,
+    max_tokens: 2000
   };
 
   try {
@@ -47,6 +51,6 @@ app.post("/chat", async (req, res) => {
 });
 
 console.log("Iniciando backend com OpenRouter...");
-app.listen(3001, () => {
-  console.log("Servidor rodando em http://localhost:3001");
+app.listen(3001, "172.16.31.176", () => {
+  console.log("Servidor rodando em http://172.16.31.176:3001");
 });
