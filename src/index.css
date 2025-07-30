@@ -1,7 +1,4 @@
 @import "tailwindcss";
-
-@tailwind base;
-@tailwind components;
 @tailwind utilities;
 
 #root {
@@ -15,8 +12,9 @@
 
 body {
   margin: 0;
-  min-width: 100vw;
+  width: 100vw;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 .lines {
@@ -26,7 +24,7 @@ body {
   right: 0;
   height: 100%;
   margin: auto;
-  width: 90vw;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   pointer-events: none;

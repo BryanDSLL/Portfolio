@@ -7,7 +7,7 @@ import './index.css';
 export default function App() {
   return (
     <Router>
-      <div className="bg-slate-900 min-h-screen flex flex-col relative">
+      <div className="animated-gradient-bg min-h-screen flex flex-col relative">
         <Header />
           <div className="lines z-0">
             <div className="line"></div>
