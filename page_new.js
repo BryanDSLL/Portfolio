@@ -106,26 +106,10 @@ export default function Home() {
     if (e.key === "Enter" && !loading) enviar();
   }
 
-  function formatarMensagem(texto) {
-    // Substituir aspas invertidas por aspas normais
-    texto = texto.replace(/`/g, '"');
-    
-    const regexBloco = /```([\w]*)?\n([\s\S]*?)```/g;
-    const regexInline = /`([^`]+)`/g;
-    const regexLista = /^\s*[-*]\s+(.+)$/gm;
-    const regexNegrito = /"([^"]+?)"/g;
-    const regexTitulo = /^(#{1,6})\s+(.+)$/gm;
-    const regexParagrafo = /^(?!```|#{1,6}\s|\s*[-*]\s)(.+)$/gm;
-    
-    let partes = [];
-    let lastIndex = 0;
-    let match;
-    
-    // Processar blocos de código
-    while ((match = regexBloco.exec(texto)) !== null) {
-      if (match.index > lastIndex) {
-        partes.push(texto.slice(lastIndex, match.index));
-      }
+function formatarMensagem(texto) {
+  // Substituir aspas invertidas por aspas normais
+  texto = texto.replace(/[
+    texto = texto.replace(/[
       
       const language = match[1] || 'txt';
       const code = match[2];
@@ -166,10 +150,10 @@ export default function Home() {
           </button>
         </div>
       );
-      lastIndex = regexBloco.lastIndex;
+      ultimoFim = regexBloco.lastIndex;
     }
-    if (lastIndex < texto.length) {
-      partes.push(texto.slice(lastIndex));
+    if (ultimoFim < texto.length) {
+      partes.push(texto.slice(ultimoFim));
     }
 
     return partes.map((parte, i) => {
@@ -199,7 +183,7 @@ export default function Home() {
           isList = true;
           if (mList.index > lastList) lista.push(parte.slice(lastList, mList.index));
           lista.push(
-            <li key={mList.index} className="ml-6 list-disc text-[#b18fff] leading-relaxed mb-1">{mList[1]}</li>
+            <li key={mList.index} className="ml-6 list-disc text-[#b18fff] leading-relaxed mb-1">{mList[3]}</li>
           );
           lastList = regexLista.lastIndex;
         }
@@ -319,7 +303,7 @@ export default function Home() {
               </div>
             )}
             {item.texto === "__LOADING__" ? (
-              <span className="flex items-center gap-2"><svg className="animate-spin h-5 w-5 text-[#b18fff]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" /><path className="opacity-75" fill="#b18fff" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z" /></svg> <span className="text-[#b18fff99]">Pensando...</span></span>
+              <span className="flex items-center gap-2"><svg className="animate-spin h-5 w-5 text-[#b18fff]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" /><path className="opacity-75" fill="#b18fff" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z" /></svg> <span className="text-[#b18fff99]">Bra.IA está pensando...</span></span>
             ) : (
               <span>
                 {formatarMensagem(item.texto)}
