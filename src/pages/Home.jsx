@@ -3,6 +3,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Eu from '../assets/eu.jpg';
 import DentalCare from '../assets/DentalCare.mp4';
+import ProjectCard from '../components/ProjectCard';
 
 import { HiChevronDoubleDown } from 'react-icons/hi2';
 
@@ -92,7 +93,7 @@ function Home() {
 
   return (
     <div className="min-h-[200vh] flex flex-col items-center justify-start text-white text-4xl font-bold overflow-x-hidden">
-      <div className="w-full min-h-[650px] flex flex-col md:flex-row items-center justify-center p-6 gap-8 relative">
+      <div id="inicio" className="w-full min-h-[650px] flex flex-col md:flex-row items-center justify-center p-6 gap-8 relative">
         {/* Foto à esquerda */}
         <div className="relative z-20 flex justify-center items-center w-full md:w-4/10">
           <img
@@ -118,6 +119,7 @@ function Home() {
 
       {/* Seção com vídeo + texto */}
       <div
+        id="sobre-mim"
         ref={addToRefs}
         className="relative z-20 mask w-full h-[75vh] mt-10 flex flex-wrap md:flex-nowrap items-center justify-center p-6"
       >
@@ -176,7 +178,7 @@ function Home() {
       </div>
       
 
-      <div className="h-[100vh] w-full flex flex-col items-center justify-center text-white px-4">
+      <div id="tecnologias" className="h-[100vh] w-full flex flex-col items-center justify-center text-white px-4">
         <h2 className="text-5xl font-bold mb-12 text-center w-full">Principais tecnologias</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 w-full max-w-6xl">
           {/* Coluna 1 */}
@@ -204,7 +206,7 @@ function Home() {
             <div className="flex flex-col items-center">
               <a href="https://tailwindcss.com/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center group">
                 <img
-                  src="https://www.svgrepo.com/show/374118/tailwind.svg"
+                  src="https://img.icons8.com/?size=100&id=x7XMNGh2vdqA&format=png&color=000000"
                   alt="Tailwind"
                   className="w-16 h-16 transition-transform duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_16px_#38bdf8]"
                 />
@@ -287,8 +289,43 @@ function Home() {
       </div>
 
 
-      <div className="h-[100vh] w-full flex items-center justify-center text-white text-6xl">
-        <p className="relative z-20">Portfólio / Seção seguinte...</p>
+      <div id="projetos" className="min-h-[100vh] w-full flex flex-col items-center justify-start py-20 text-white">
+        <h2 className="text-5xl font-bold mb-16">Projetos</h2>
+        
+        {/* Dados dos projetos */}
+        <div className="w-full max-w-6xl">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Projeto 1 - DentalCare */}
+            <ProjectCard 
+              title="DentalCare"
+              description="Sistema de agendamento para clínica odontológica com interface moderna e responsiva."
+              video="/src/assets/DentalCare.mp4"
+              technologies={["React", "Tailwind CSS", "JavaScript", "Node.js"]}
+              githubLink="https://github.com/BryanDSLL/DentalCare"
+              demoLink="#"
+            />
+
+            {/* Projeto 2 - Em breve */}
+            <ProjectCard 
+              title="Em breve"
+              description="Novo projeto em desenvolvimento."
+              image="https://via.placeholder.com/400x225/1a1a2e/ffffff?text=Em+Breve"
+              technologies={["HTML", "CSS", "JavaScript"]}
+              githubLink="#"
+              demoLink="#"
+            />
+
+            {/* Projeto 3 - Em breve */}
+            <ProjectCard 
+              title="Em breve"
+              description="Novo projeto em desenvolvimento."
+              image="https://via.placeholder.com/400x225/1a1a2e/ffffff?text=Em+Breve"
+              technologies={["HTML", "CSS", "JavaScript"]}
+              githubLink="#"
+              demoLink="#"
+            />
+          </div>
+        </div>
       </div>
     </div>
   );
