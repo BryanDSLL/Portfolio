@@ -296,18 +296,18 @@ function Home() {
               title="DentalCare"
               description="Sistema de agendamento para clínica odontológica com interface moderna e responsiva."
               video="/src/assets/DentalCare.mp4"
-              technologies={["React", "Tailwind CSS", "JavaScript", "Node.js"]}
+              technologies={["React", "Vite", "ESLint", "Tailwind CSS", "Node.js"]}
               githubLink="https://github.com/BryanDSLL/DentalCare"
-              demoLink="#"
+              demoLink="https://dentalcare-production-ed3a.up.railway.app/"
             />
 
             {/* Projeto 2 - Em breve */}
             <ProjectCard 
-              title="Em breve"
-              description="Novo projeto em desenvolvimento."
-              image="https://via.placeholder.com/400x225/1a1a2e/ffffff?text=Em+Breve"
-              technologies={["HTML", "CSS", "JavaScript"]}
-              githubLink="#"
+              title="Bra.IA"
+              description="Chatbot conectado a LLMs para uso como assistente pessoal"
+              image="/src/assets/BraIA.png"
+              technologies={["React", "Next.Js", "ESLint", "Tailwind CSS", "Node.js"]}
+              githubLink="https://github.com/BryanDSLL/BraIA"
               demoLink="#"
             />
 
