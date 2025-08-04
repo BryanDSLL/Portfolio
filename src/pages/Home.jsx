@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Eu from '../assets/eu.jpg';
-import DentalCare from '../assets/DentalCare.mp4';
+import DentalCare from '../assets/dentalcare.mp4';
 import ProjectCard from '../components/ProjectCard';
 
 import { HiChevronDoubleDown } from 'react-icons/hi2';
