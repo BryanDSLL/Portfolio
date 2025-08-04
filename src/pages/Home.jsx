@@ -169,10 +169,10 @@ function Home() {
         </div>
 
         <div className="w-full md:w-2/4 flex items-center justify-center p-4 relative min-h-[260px]">
-          {/* PostgreSQL (centro) */}
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" className="w-20 h-20 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rotate-[-6deg] drop-shadow-lg z-10" />
-          {/* NodeJS (cima esquerda) */}
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="NodeJS" className="w-16 h-16 absolute left-[32%] top-[28%] -translate-x-1/2 -translate-y-1/2 rotate-[-10deg] drop-shadow-lg" />
+          {/* PostgreSQL (cima esquerda) */}
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" className="w-16 h-16 absolute left-[32%] top-[28%] -translate-x-1/2 -translate-y-1/2 rotate-[-10deg] drop-shadow-lg" />
+          {/* NodeJS (centro) */}
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="NodeJS" className="w-20 h-20 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rotate-[-6deg] drop-shadow-lg z-10" />
           {/* ExpressJS (cima direita) */}
           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" alt="ExpressJS" className="w-16 h-16 absolute right-[32%] top-[28%] translate-x-1/2 -translate-y-1/2 rotate-[12deg] drop-shadow-lg bg-white p-2 rounded-full" />
           {/* JavaScript (esquerda centro) */}
@@ -210,17 +210,25 @@ function Home() {
             <span className="mt-2 text-2xl">JavaScript</span>
           </a>
 
-          {/* Item 3 - HTML5 */}
-          <a href="https://developer.mozilla.org/docs/Web/HTML" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center group">
-            <img
-              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
-              alt="HTML5"
-              className="w-16 h-16 transition-transform duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_16px_#e34c26]"
-            />
-            <span className="mt-2 text-2xl">HTML5</span>
+          {/* Item 3 - Vercel */}
+          <a href="https://vercel.com/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center group">
+            <span className="w-16 h-16 flex items-center justify-center transition-transform duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_16px_#fff] bg-white p-2 rounded">
+              <img src={import.meta.env.BASE_URL + 'src/assets/vercel.svg'} alt="Vercel" className="w-12 h-12" />
+            </span>
+            <span className="mt-2 text-2xl">Vercel</span>
           </a>
 
-          {/* Item 4 - TypeScript */}
+          {/* Item 4 - Tailwind CSS */}
+          <a href="https://tailwindcss.com/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center group">
+            <img
+              src="https://img.icons8.com/?size=100&id=x7XMNGh2vdqA&format=png&color=000000"
+              alt="Tailwind"
+              className="w-16 h-16 transition-transform duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_16px_#38bdf8]"
+            />
+            <span className="mt-2 text-2xl">Tailwind CSS</span>
+          </a>
+          
+          {/* Item 5 - TypeScript */}
           <a href="https://www.typescriptlang.org/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center group">
             <img
               src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
@@ -230,24 +238,14 @@ function Home() {
             <span className="mt-2 text-2xl">TypeScript</span>
           </a>
           
-          {/* Item 5 - Tailwind CSS */}
-          <a href="https://tailwindcss.com/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center group">
+          {/* Item 6 - PostgreSQL */}
+          <a href="https://www.postgresql.org/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center group">
             <img
-              src="https://img.icons8.com/?size=100&id=x7XMNGh2vdqA&format=png&color=000000"
-              alt="Tailwind"
-              className="w-16 h-16 transition-transform duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_16px_#38bdf8]"
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"
+              alt="PostgreSQL"
+              className="w-16 h-16 transition-transform duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_16px_#336791]"
             />
-            <span className="mt-2 text-2xl">Tailwind CSS</span>
-          </a>
-
-          {/* Item 6 - NodeJS */}
-          <a href="https://nodejs.org/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center group">
-            <img
-              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
-              alt="NodeJS"
-              className="w-16 h-16 transition-transform duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_16px_#539e43]"
-            />
-            <span className="mt-2 text-2xl">NodeJS</span>
+            <span className="mt-2 text-2xl">PostgreSQL</span>
           </a>
           
           {/* Item 7 - GSAP */}
@@ -264,17 +262,17 @@ function Home() {
             />
             <span className="mt-2 text-2xl">GSAP</span>
           </a>
-
-          {/* Item 8 - PostgreSQL */}
-          <a href="https://www.postgresql.org/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center group">
+          
+          {/* Item 8 - NodeJS */}
+          <a href="https://nodejs.org/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center group">
             <img
-              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"
-              alt="PostgreSQL"
-              className="w-16 h-16 transition-transform duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_16px_#336791]"
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+              alt="NodeJS"
+              className="w-16 h-16 transition-transform duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_16px_#539e43]"
             />
-            <span className="mt-2 text-2xl">PostgreSQL</span>
+            <span className="mt-2 text-2xl">NodeJS</span>
           </a>
-
+          
           {/* Item 9 - MySQL */}
           <a href="https://www.mysql.com/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center group">
             <img
