@@ -2,7 +2,7 @@ import React from 'react';
 
 const ProjectCard = ({ title, description, image, video, technologies, githubLink, demoLink }) => {
   return (
-    <div className="bg-[#1E1E2E] rounded-xl overflow-hidden shadow-lg transform transition-transform duration-300 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(79,70,229,0.3)] border border-[#2D2D3A]">
+    <div className="bg-[#1E1E2E] w-90 md:w-full rounded-xl overflow-hidden shadow-lg transform transition-transform duration-300 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(79,70,229,0.3)] border border-[#2D2D3A]">
       <div className="flex flex-col h-full">
         <div className="relative h-40 overflow-hidden">
           {video ? (
@@ -15,7 +15,7 @@ const ProjectCard = ({ title, description, image, video, technologies, githubLin
             />
           ) : (
             <img 
-              src={image || "https://via.placeholder.com/400x225/1a1a2e/ffffff?text=Em+Breve"} 
+              src={image || "EM BREVE"} 
               alt={title} 
               className="w-full h-full object-cover"
             />
