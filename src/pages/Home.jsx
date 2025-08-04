@@ -121,7 +121,7 @@ function Home() {
       <div
         id="sobre-mim"
         ref={addToRefs}
-        className="relative z-20 mask w-full h-[75vh] mt-10 flex flex-wrap md:flex-nowrap items-center justify-center p-6"
+        className="relative z-20 mask w-full h-[75vh] mt-25 flex flex-wrap md:flex-nowrap items-center justify-center p-6"
       >
         <div className="mt-15 ml-2 w-full md:w-2/4 flex items-center justify-center">
           <video
