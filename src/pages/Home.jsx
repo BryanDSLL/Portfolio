@@ -12,84 +12,80 @@ gsap.registerPlugin(ScrollTrigger);
 function Home() {
   const maskRefs = useRef([]);
   const videoRef = useRef(null);
-
   const arrowRef = useRef(null);
+  const mainContainerRef = useRef(null);
+
   useEffect(() => {
-    const masks = maskRefs.current;
+    const ctx = gsap.context(() => {
+      const masks = maskRefs.current;
 
-    // Animação da primeira seção (entrada com zoom)
-    if (masks[0]) {
-      gsap.fromTo(
-        masks[0],
-        { scale: 4, opacity: 0 },
-        {
-          scale: 1,
-          opacity: 1,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: masks[0],
-            start: 'top 70%',
-            end: 'top 20%',
-            scrub: true,
-          },
-        }
-      );
-    }
+      if (masks[0]) {
+        gsap.fromTo(
+          masks[0],
+          { scale: 1.6, opacity: 0 },
+          {
+            scale: 1,
+            opacity: 1,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: masks[0],
+              start: 'top 60%',
+              end: 'top 10%',
+              scrub: true,
+            
+            },
+          }
+        );
+      }
 
-    // Animação da segunda seção (texto + imagem)
-    if (masks[1]) {
-      const [textDiv, imgDiv] = masks[1].children;
+      if (masks[1]) {
+        const [textDiv, imgDiv] = masks[1].children;
+        
+        gsap.fromTo(
+          textDiv,
+          { xPercent: -50, opacity: 0 },
+          {
+            xPercent: 0,
+            opacity: 1,
+            scrollTrigger: {
+              trigger: masks[1],
+              start: 'top 80%',
+              end: 'top 30%',
+              scrub: true,
+            },
+          }
+        );
 
-      gsap.fromTo(
-        textDiv,
-        { x: -200, opacity: 0 },
-        {
-          x: 0,
-          opacity: 1,
-          scrollTrigger: {
-            trigger: masks[1],
-            start: 'top 70%',
-            end: 'top 20%',
-            scrub: true,
-          },
-        }
-      );
+        gsap.fromTo(
+          imgDiv,
+          { xPercent: 50, opacity: 0 },
+          {
+            xPercent: 0,
+            opacity: 1,
+            scrollTrigger: {
+              trigger: masks[1],
+              start: 'top 80%',
+              end: 'top 30%',
+              scrub: true,
+            },
+          }
+        );
+      }
 
-      gsap.fromTo(
-        imgDiv,
-        { x: 200, opacity: 0 },
-        {
-          x: 0,
-          opacity: 1,
-          scrollTrigger: {
-            trigger: masks[1],
-            start: 'top 70%',
-            end: 'top 20%',
-            scrub: true,
-          },
-        }
-      );
-    }
+      if (arrowRef.current) {
+        gsap.to(arrowRef.current, {
+          y: 32, 
+          repeat: -1,
+          yoyo: true,
+          ease: 'sine.inOut',
+          duration: 1.2,
+        });
+      }
 
-    // Animação vertical suave e constante para a seta
-    if (arrowRef.current) {
-      gsap.to(arrowRef.current, {
-        y: 32,
-        scale: 1.15,
-        opacity: 1,
-        repeat: -1,
-        yoyo: true,
-        ease: 'sine.inOut',
-        duration: 1.2,
-      });
-    }
+    }, mainContainerRef); 
+
+    return () => ctx.revert(); 
   }, []);
-
-  const addToRefs = (el) => {
-    if (el && !maskRefs.current.includes(el)) {
-      maskRefs.current.push(el);
-    }
-  };
 
   return (
     <div className="min-h-[200vh] flex flex-col items-center justify-start text-white text-4xl font-bold overflow-x-hidden">
@@ -120,7 +116,7 @@ function Home() {
       {/* Seção com vídeo + texto */}
       <div
         id="sobre-mim"
-        ref={addToRefs}
+        ref={(el) => maskRefs.current.push(el)}
         className="relative z-20 mask w-full h-[75vh] mt-25 flex flex-wrap md:flex-nowrap items-center justify-center p-6"
       >
         <div className="mt-15 ml-2 w-full md:w-2/4 flex items-center justify-center">
@@ -147,8 +143,8 @@ function Home() {
 
       {/* Seção com texto + imagem */}
       <div
-        ref={addToRefs}
-        className="relative z-20 mask h-[75vh] w-full flex flex-wrap md:flex-nowrap p-6"
+        ref={(el) => maskRefs.current.push(el)}
+        className="relative z-20 mask h-[70vh] w-full flex flex-wrap md:flex-nowrap p-6"
       >
         <div className="w-full md:w-3/4 flex flex-col justify-center p-15">
           <h2 className="text-5xl font-bold mb-12 text-center w-full">Back-End</h2>
