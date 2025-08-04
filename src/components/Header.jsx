@@ -1,17 +1,16 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
 import Logo from '../assets/Logo-Branca.png';
 
-
 export default function Header() {
+
   const scrollToSection = (sectionId) => {
     const section = document.getElementById(sectionId);
     if (section) {
       window.scrollTo({
-        top: section.offsetTop - 64, // Subtrai a altura do header para não sobrepor o conteúdo
+        top: section.offsetTop - 64,
         behavior: 'smooth'
       });
     }
+
   };
 
   return (
