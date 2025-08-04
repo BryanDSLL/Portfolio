@@ -1,4 +1,4 @@
-import Logo from '../assets/Logo-Branca.png';
+import Logo from '../assets/Logo-Branca.png'; 
 
 export default function Header() {
 
