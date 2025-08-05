@@ -191,69 +191,71 @@ function Home() {
         <h2 className="text-5xl font-bold mb-12 text-center w-full">Principais tecnologias</h2>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-12 w-full max-w-6xl">
           {/* Item 1 - React */}
-          <a href="https://react.dev/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center group">
+          <a href="https://react.dev/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
             <img
               src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
               alt="React"
-              className="w-16 h-16 transition-transform duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_16px_#61dafb]"
+              className="w-16 h-16 transition-transform duration-300 hover:scale-110 hover:drop-shadow-[0_0_16px_#61dafb]"
             />
             <span className="mt-2 text-2xl">React</span>
           </a>
 
           {/* Item 2 - JavaScript */}
-          <a href="https://developer.mozilla.org/docs/Web/JavaScript" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center group">
+          <a href="https://developer.mozilla.org/docs/Web/JavaScript" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
             <img
               src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
               alt="JavaScript"
-              className="w-16 h-16 transition-transform duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_16px_#f7df1e]"
+              className="w-16 h-16 transition-transform duration-300 hover:scale-110 hover:drop-shadow-[0_0_16px_#f7df1e]"
             />
             <span className="mt-2 text-2xl">JavaScript</span>
           </a>
 
           {/* Item 3 - Vercel */}
-          <a href="https://vercel.com/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center group">
-            <span className="w-16 h-16 flex items-center justify-center transition-transform duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_16px_#fff] bg-white p-2 rounded">
-              <img src={import.meta.env.BASE_URL + 'src/assets/vercel.svg'} alt="Vercel" className="w-12 h-12" />
-            </span>
+          <a href="https://vercel.com/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
+            <img
+              src={import.meta.env.BASE_URL + 'src/assets/vercel.svg'}
+              alt="Vercel"
+              className="w-16 h-16 transition-transform duration-300 hover:scale-110 hover:drop-shadow-[0_0_16px_#fff] bg-white p-2 rounded"
+            />
             <span className="mt-2 text-2xl">Vercel</span>
           </a>
 
           {/* Item 4 - Tailwind CSS */}
-          <a href="https://tailwindcss.com/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center group">
+          <a href="https://tailwindcss.com/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
             <img
               src="https://img.icons8.com/?size=100&id=x7XMNGh2vdqA&format=png&color=000000"
               alt="Tailwind"
-              className="w-16 h-16 transition-transform duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_16px_#38bdf8]"
+              className="w-16 h-16 transition-transform duration-300 hover:scale-110 hover:drop-shadow-[0_0_16px_#38bdf8]"
             />
             <span className="mt-2 text-2xl">Tailwind CSS</span>
           </a>
           
           {/* Item 5 - TypeScript */}
-          <a href="https://www.typescriptlang.org/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center group">
+          <a href="https://www.typescriptlang.org/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
             <img
               src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
               alt="TypeScript"
-              className="w-16 h-16 transition-transform duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_16px_#3178c6] bg-white p-1 rounded border-2 border-blue-400"
+              className="w-16 h-16 transition-transform duration-300 hover:scale-110 hover:drop-shadow-[0_0_16px_#3178c6] bg-white p-1 rounded border-2 border-blue-400"
             />
             <span className="mt-2 text-2xl">TypeScript</span>
           </a>
           
           {/* Item 6 - PostgreSQL */}
-          <a href="https://www.postgresql.org/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center group">
+          <a href="https://www.postgresql.org/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
             <img
               src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"
               alt="PostgreSQL"
-              className="w-16 h-16 transition-transform duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_16px_#336791]"
+              className="w-16 h-16 transition-transform duration-300 hover:scale-110 hover:drop-shadow-[0_0_16px_#336791]"
             />
             <span className="mt-2 text-2xl">PostgreSQL</span>
           </a>
           
           {/* Item 7 - GSAP */}
-          <a href="https://gsap.com/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center group">
+          <a href="https://gsap.com/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
             <img
               src="https://svgstack.com/media/img/gsap-logo-dNe6788698.webp"
               alt="GSAP"
-              className="w-16 h-16 scale-[1.25] transition-transform duration-300 group-hover:scale-[1.35]"
+              className="w-16 h-16 scale-[1.25] transition-transform duration-300 hover:scale-[1.35]"
               style={{
                 filter: 'brightness(0) saturate(100%) invert(81%) sepia(41%) saturate(749%) hue-rotate(54deg) brightness(102%) contrast(101%)',
               }}
@@ -264,21 +266,21 @@ function Home() {
           </a>
           
           {/* Item 8 - NodeJS */}
-          <a href="https://nodejs.org/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center group">
+          <a href="https://nodejs.org/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
             <img
               src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
               alt="NodeJS"
-              className="w-16 h-16 transition-transform duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_16px_#539e43]"
+              className="w-16 h-16 transition-transform duration-300 hover:scale-110 hover:drop-shadow-[0_0_16px_#539e43]"
             />
             <span className="mt-2 text-2xl">NodeJS</span>
           </a>
           
           {/* Item 9 - MySQL */}
-          <a href="https://www.mysql.com/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center group">
+          <a href="https://www.mysql.com/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
             <img
               src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"
               alt="MySQL"
-              className="w-16 h-16 transition-transform duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_16px_#00758f]"
+              className="w-16 h-16 transition-transform duration-300 hover:scale-110 hover:drop-shadow-[0_0_16px_#00758f]"
             />
             <span className="mt-2 text-2xl">MySQL</span>
           </a>
@@ -297,7 +299,7 @@ function Home() {
               title="DentalCare"
               description="Sistema de agendamento para clínica odontológica com interface moderna e responsiva."
               video="/src/assets/DentalCare.mp4"
-              technologies={["React", "Vite", "ESLint", "Tailwind CSS", "Node.js"]}
+              technologies={["React.Js", "Vite", "ESLint", "Tailwind CSS", "Node.Js"]}
               githubLink="https://github.com/BryanDSLL/DentalCare"
               demoLink="https://dentalcare-production-ed3a.up.railway.app/"
             />
@@ -307,7 +309,7 @@ function Home() {
               title="Bra.IA"
               description="Chatbot conectado a LLMs para uso como assistente pessoal"
               image="/src/assets/BraIA.png"
-              technologies={["React", "Next.Js", "ESLint", "Tailwind CSS", "Node.js"]}
+              technologies={["Next.Js", "ESLint", "Tailwind CSS", "Node.Js"]}
               githubLink="https://github.com/BryanDSLL/BraIA"
               demoLink="#"
             />
