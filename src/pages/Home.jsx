@@ -298,8 +298,8 @@ function Home() {
             <ProjectCard 
               title="DentalCare"
               description="Sistema de agendamento para clínica odontológica com interface moderna e responsiva."
-              video="/src/assets/DentalCare.mp4"
-              technologies={["React.Js", "Vite", "ESLint", "Tailwind CSS", "Node.Js"]}
+              video="/src/assets/dentalcare.mp4"
+              technologies={["React", "Vite", "ESLint", "Tailwind CSS", "Node.js"]}
               githubLink="https://github.com/BryanDSLL/DentalCare"
               demoLink="https://dentalcare-production-ed3a.up.railway.app/"
             />
@@ -308,8 +308,8 @@ function Home() {
             <ProjectCard 
               title="Bra.IA"
               description="Chatbot conectado a LLMs para uso como assistente pessoal"
-              image="/src/assets/BraIA.png"
-              technologies={["Next.Js", "ESLint", "Tailwind CSS", "Node.Js"]}
+              image="/src/assets/braia.png"
+              technologies={["React", "Next.Js", "ESLint", "Tailwind CSS", "Node.js"]}
               githubLink="https://github.com/BryanDSLL/BraIA"
               demoLink="#"
             />
