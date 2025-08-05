@@ -1,8 +1,10 @@
 import { useEffect, useRef } from 'react';
+
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Eu from '../assets/eu.jpg';
 import DentalCare from '../assets/dentalcare.mp4';
+import BraIA from '../assets/braia.png';
 import ProjectCard from '../components/ProjectCard';
 
 import { HiChevronDoubleDown } from 'react-icons/hi2';
@@ -308,7 +310,7 @@ function Home() {
             <ProjectCard 
               title="Bra.IA"
               description="Chatbot conectado a LLMs para uso como assistente pessoal"
-              image="/src/assets/braia.png"
+              image={BraIA}
               technologies={["React", "Next.Js", "ESLint", "Tailwind CSS", "Node.js"]}
               githubLink="https://github.com/BryanDSLL/BraIA"
               demoLink="#"
