@@ -23,8 +23,7 @@ export default function App() {
           </div>
           <main className="flex-grow">
           <Routes>
-            <Route path="/" element={<Navigate to="/home" replace />} />
-            <Route path="/home" element={<Home />} />
+            <Route path="/" element={<Home />} />
           </Routes>
         </main>
         <Footer />

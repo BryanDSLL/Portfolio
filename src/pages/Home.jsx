@@ -298,7 +298,7 @@ function Home() {
             <ProjectCard 
               title="DentalCare"
               description="Sistema de agendamento para clínica odontológica com interface moderna e responsiva."
-              video="/src/assets/dentalcare.mp4"
+              video={DentalCare}
               technologies={["React", "Vite", "ESLint", "Tailwind CSS", "Node.js"]}
               githubLink="https://github.com/BryanDSLL/DentalCare"
               demoLink="https://dentalcare-production-ed3a.up.railway.app/"
