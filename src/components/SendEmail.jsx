@@ -19,14 +19,14 @@ export default function SendEmail() {
 
     emailjs
       .send(
-        "seu_service_id",   // ← Substitua pelo seu ID de serviço
-        "seu_template_id",  // ← Substitua pelo seu ID de template
+        "seu_service_id_aqui",   // ← Substitua pelo seu Service ID
+        "seu_template_id_aqui",  // ← Substitua pelo seu Template ID
         {
           from_name: form.nome,
           from_email: form.email,
           message: form.mensagem,
         },
-        "seu_user_id"       
+        "seu_user_id_aqui"       // ← Substitua pelo seu User ID
       )
       .then(() => {
         setStatus("Mensagem enviada com sucesso!");

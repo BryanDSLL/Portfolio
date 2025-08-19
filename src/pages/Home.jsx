@@ -215,7 +215,7 @@ function Home() {
           {/* Item 3 - Vercel */}
           <a href="https://vercel.com/" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
             <img
-              src={import.meta.env.BASE_URL + 'src/assets/vercel.svg'}
+              src="data:image/png;base64,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"
               alt="Vercel"
               className="w-16 h-16 transition-transform duration-300 hover:scale-110 hover:drop-shadow-[0_0_16px_#fff] bg-white p-2 rounded"
             />
@@ -306,7 +306,7 @@ function Home() {
               demoLink="https://dentalcare-production-ed3a.up.railway.app/"
             />
 
-            {/* Projeto 2 - Em breve */}
+            {/* Projeto 2 - BraIA */}
             <ProjectCard 
               title="Bra.IA"
               description="Chatbot conectado a LLMs para uso como assistente pessoal"
