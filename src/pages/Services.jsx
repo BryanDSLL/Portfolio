@@ -6,30 +6,24 @@ import { FaWhatsapp, FaEnvelope, FaRocket, FaPalette, FaCode, FaMobile, FaVideo 
 import LogoEscura from '../../dist/bz-escura.png';
 import LogoClara from '../../dist/bz-clara.png';
 import emailjs from 'emailjs-com';
-// Importando os dados dos projetos do arquivo separado
+
 import { projectsData } from '../data/projetos.js';
 
 gsap.registerPlugin(ScrollTrigger);
 
-// Removendo o array projectsData daqui, pois agora está no arquivo projetos.js
-
 function Services() {
-  // Estados do componente
   const [currentImageIndexes, setCurrentImageIndexes] = useState(
     projectsData.reduce((acc, project) => {
       acc[project.id] = 0;
       return acc;
     }, {})
   );
-  
-  // Estado para controlar o tema da logo
-  const [logoTheme, setLogoTheme] = useState('dark'); // 'dark' ou 'light'
-  
+
+  const [logoTheme, setLogoTheme] = useState('dark'); 
   const maskRefs = useRef([]);
   const arrowRef = useRef(null);
   const mainContainerRef = useRef(null);
 
-  // Estados para o formulário
   const [form, setForm] = useState({
     nome: "",
     email: "",
@@ -38,7 +32,6 @@ function Services() {
   const [status, setStatus] = useState("");
   const [showForm, setShowForm] = useState(false);
 
-  // Função para alternar o tema da logo
   const toggleLogo = () => {
     setLogoTheme(prev => prev === 'dark' ? 'light' : 'dark');
   };
@@ -75,7 +68,6 @@ function Services() {
     const ctx = gsap.context(() => {
       const masks = maskRefs.current;
 
-      // Animação para as seções
       masks.forEach((mask, index) => {
         if (mask) {
           gsap.fromTo(
@@ -96,7 +88,6 @@ function Services() {
         }
       });
 
-      // Animação da seta
       if (arrowRef.current) {
         gsap.to(arrowRef.current, {
           y: 32,
