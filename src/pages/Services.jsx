@@ -1,67 +1,17 @@
 import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { HiChevronDoubleDown, HiCheckCircle, HiClock, HiLightBulb, HiDeviceTablet, HiChevronLeft, HiChevronRight } from 'react-icons/hi2';
-import { FaWhatsapp, FaEnvelope, FaRocket, FaPalette, FaCode, FaMobile } from 'react-icons/fa';
-import Eu from '../assets/eu.jpg';
-import DentalCare from '../assets/dentalcare.mp4';
-import BraIA from '../assets/braia.png';
+import { HiChevronDoubleDown, HiCheckCircle, HiClock, HiLightBulb, HiDeviceTablet, HiChevronLeft, HiChevronRight, HiSun, HiMoon } from 'react-icons/hi2';
+import { FaWhatsapp, FaEnvelope, FaRocket, FaPalette, FaCode, FaMobile, FaVideo } from 'react-icons/fa';
+import LogoEscura from '../../dist/bz-escura.png';
+import LogoClara from '../../dist/bz-clara.png';
 import emailjs from 'emailjs-com';
+// Importando os dados dos projetos do arquivo separado
+import { projectsData } from '../data/projetos.js';
 
 gsap.registerPlugin(ScrollTrigger);
 
-// Dados dos projetos - FORA do componente
-const projectsData = [
-  {
-    id: 1,
-    title: "DentalCare",
-    description: "Sistema de agendamento para clínica odontológica com interface moderna e responsiva.",
-    technologies: [
-      { name: "React", color: "bg-blue-600/20 text-blue-400" },
-      { name: "Vite", color: "bg-green-600/20 text-green-400" },
-      { name: "Tailwind CSS", color: "bg-cyan-600/20 text-cyan-400" },
-      { name: "Node.js", color: "bg-green-600/20 text-green-400" }
-    ],
-    media: [
-      { type: "video", src: DentalCare, alt: "DentalCare Demo" },
-      { type: "image", src: BraIA, alt: "Bra.IA Interface" }
-    ],
-    fallbackIcon: FaCode,
-    fallbackColor: "from-blue-600/20 to-purple-600/20",
-    iconColor: "text-blue-400"
-  },
-  {
-    id: 2,
-    title: "Bra.IA",
-    description: "Chatbot conectado a LLMs para uso como assistente pessoal.",
-    technologies: [
-      { name: "React", color: "bg-blue-600/20 text-blue-400" },
-      { name: "Next.js", color: "bg-gray-600/20 text-gray-400" },
-      { name: "Tailwind CSS", color: "bg-cyan-600/20 text-cyan-400" },
-      { name: "Node.js", color: "bg-green-600/20 text-green-400" }
-    ],
-    media: [
-      { type: "image", src: BraIA, alt: "Bra.IA Interface" }
-    ],
-    fallbackIcon: FaPalette,
-    fallbackColor: "from-green-600/20 to-blue-600/20",
-    iconColor: "text-green-400"
-  },
-  {
-    id: 3,
-    title: "Em breve",
-    description: "Novo projeto em desenvolvimento com tecnologias modernas.",
-    technologies: [
-      { name: "React Native", color: "bg-blue-600/20 text-blue-400" },
-      { name: "TypeScript", color: "bg-blue-600/20 text-blue-400" },
-      { name: "Expo", color: "bg-purple-600/20 text-purple-400" }
-    ],
-    media: [],
-    fallbackIcon: FaMobile,
-    fallbackColor: "from-purple-600/20 to-pink-600/20",
-    iconColor: "text-purple-400"
-  }
-];
+// Removendo o array projectsData daqui, pois agora está no arquivo projetos.js
 
 function Services() {
   // Estados do componente
@@ -71,6 +21,9 @@ function Services() {
       return acc;
     }, {})
   );
+  
+  // Estado para controlar o tema da logo
+  const [logoTheme, setLogoTheme] = useState('dark'); // 'dark' ou 'light'
   
   const maskRefs = useRef([]);
   const arrowRef = useRef(null);
@@ -84,6 +37,11 @@ function Services() {
   });
   const [status, setStatus] = useState("");
   const [showForm, setShowForm] = useState(false);
+
+  // Função para alternar o tema da logo
+  const toggleLogo = () => {
+    setLogoTheme(prev => prev === 'dark' ? 'light' : 'dark');
+  };
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -167,13 +125,54 @@ function Services() {
     <div ref={mainContainerRef} className="min-h-[200vh] flex flex-col items-center justify-start text-white text-4xl font-bold overflow-x-hidden">
       {/* Hero Section */}
       <div id="inicio" className="w-full min-h-[100vh] flex flex-col md:flex-row items-center justify-center p-6 gap-8 relative">
-        <div className="relative mt-10 z-20 flex justify-center items-center w-full md:w-4/10">
+        <div className="relative mt-10 z-20 flex flex-col justify-center items-center w-full md:w-4/10">
           <img
-            src={Eu}
-            alt="Bryan Zimbrão - Desenvolvedor"
-            className="w-80 h-80 rounded-full object-cover border-4 border-white shadow-lg"
+            src={logoTheme === 'dark' ? LogoEscura : LogoClara}
+            alt={logoTheme === 'dark' ? 'Logo Escura' : 'Logo Clara'}
+            className="w-80 h-80 rounded-full object-cover border-4 border-white shadow-lg transition-all duration-500"
           />
+          
+          {/* Toggle Switch - abaixo da imagem */}
+          <div className="mt-6 flex flex-col items-center gap-3">
+            <div className="flex items-center gap-3">
+              {/* Ícone da Lua */}
+              <HiMoon className={`text-xl transition-colors duration-300 ${
+                logoTheme === 'dark' ? 'text-blue-300' : 'text-gray-500'
+              }`} />
+              
+              {/* Barra do Toggle */}
+              <button
+                onClick={toggleLogo}
+                className={`relative w-14 h-7 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white/50 ${
+                  logoTheme === 'dark' 
+                    ? 'bg-gray-600 hover:bg-gray-500' 
+                    : 'bg-yellow-500 hover:bg-yellow-400'
+                }`}
+                title={logoTheme === 'dark' ? 'Mudar para logo clara' : 'Mudar para logo escura'}
+              >
+                {/* Círculo deslizante */}
+                <div className={`absolute top-1 w-5 h-5 bg-white rounded-full shadow-md transition-transform duration-300 ${
+                  logoTheme === 'dark' ? 'translate-x-1' : 'translate-x-8'
+                }`}>
+                  {/* Ícone dentro do círculo */}
+                  <div className="w-full h-full flex items-center justify-center">
+                    {logoTheme === 'dark' ? (
+                      <HiMoon className="text-xs text-gray-600" />
+                    ) : (
+                      <HiSun className="text-xs text-yellow-600" />
+                    )}
+                  </div>
+                </div>
+              </button>
+              
+              {/* Ícone do Sol */}
+              <HiSun className={`text-xl transition-colors duration-300 ${
+                logoTheme === 'light' ? 'text-yellow-400' : 'text-gray-500'
+              }`} />
+            </div>
+          </div>
         </div>
+        
         <div className="relative z-20 flex flex-col justify-center md:justify-baseline items-center md:items-start w-full md:w-6/10 text-center md:text-start">
           <h1 className="text-6xl font-bold mb-4">Transforme sua ideia em realidade digital</h1>
           <h2 className="text-2xl font-normal mb-6 text-gray-300">Desenvolvimento profissional de sites, landing pages e aplicativos</h2>
@@ -192,6 +191,7 @@ function Services() {
             </button>
           </div>
         </div>
+        
         <span
           ref={arrowRef}
           className="absolute bottom-1 left-1/2 -translate-x-1/2 text-6xl text-white drop-shadow-lg"
@@ -239,52 +239,68 @@ function Services() {
         className="relative z-20 w-full min-h-[100vh] p-6 mt-20"
       >
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">Meus Serviços</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
           {/* Sites Institucionais */}
-          <div className="bg-gradient-to-br from-blue-600/20 to-blue-800/20 backdrop-blur p-8 rounded-xl border border-blue-500/30 hover:border-blue-400/50 transition-all duration-300 transform hover:scale-105">
+          <div className="bg-gradient-to-br from-blue-600/20 to-blue-800/20 backdrop-blur p-8 rounded-xl border border-blue-500/30 hover:border-blue-400/50 transition-all duration-300 transform hover:scale-105 flex flex-col">
             <FaCode className="text-5xl text-blue-400 mb-6" />
             <h3 className="text-3xl font-bold mb-4">Sites Profissionais</h3>
             <p className="text-lg font-normal text-gray-300 mb-6">Sites completos para empresas, profissionais liberais e negócios locais. Inclui:</p>
-            <ul className="text-base font-normal text-gray-300 space-y-2">
+            <ul className="text-base font-normal text-gray-300 space-y-2 flex-grow">
               <li className="flex items-center"><HiCheckCircle className="text-green-400 mr-2" /> Design moderno e profissional</li>
               <li className="flex items-center"><HiCheckCircle className="text-green-400 mr-2" /> Otimizado para Google (SEO)</li>
               <li className="flex items-center"><HiCheckCircle className="text-green-400 mr-2" /> Formulário de contato</li>
               <li className="flex items-center"><HiCheckCircle className="text-green-400 mr-2" /> Integração com redes sociais</li>
             </ul>
-            <div className="mt-6 text-center">
+            <div className="mt-auto pt-6 text-center border-t border-blue-500/20">
               <span className="text-2xl font-bold text-blue-400">A partir de R$ 800</span>
             </div>
           </div>
 
           {/* Landing Pages */}
-          <div className="bg-gradient-to-br from-purple-600/20 to-purple-800/20 backdrop-blur p-8 rounded-xl border border-purple-500/30 hover:border-purple-400/50 transition-all duration-300 transform hover:scale-105">
-            <FaPalette className="text-5xl text-purple-400 mb-6" />
+          <div className="bg-gradient-to-br from-purple-600/20 to-purple-800/20 backdrop-blur p-8 rounded-xl border border-purple-500/30 hover:border-purple-400/50 transition-all duration-300 transform hover:scale-105 flex flex-col">
+            <FaRocket className="text-5xl text-purple-400 mb-6" />
             <h3 className="text-3xl font-bold mb-4">Landing Pages</h3>
-            <p className="text-lg font-normal text-gray-300 mb-6">Páginas focadas em conversão para campanhas e vendas. Inclui:</p>
-            <ul className="text-base font-normal text-gray-300 space-y-2">
+            <p className="text-lg font-normal text-gray-300 mb-6">Páginas de conversão otimizadas para campanhas e vendas. Inclui:</p>
+            <ul className="text-base font-normal text-gray-300 space-y-2 flex-grow">
+              <li className="flex items-center"><HiCheckCircle className="text-green-400 mr-2" /> Alta conversão</li>
               <li className="flex items-center"><HiCheckCircle className="text-green-400 mr-2" /> Design persuasivo</li>
-              <li className="flex items-center"><HiCheckCircle className="text-green-400 mr-2" /> Otimizada para conversão</li>
-              <li className="flex items-center"><HiCheckCircle className="text-green-400 mr-2" /> Integração com WhatsApp</li>
-              <li className="flex items-center"><HiCheckCircle className="text-green-400 mr-2" /> Análise de performance</li>
+              <li className="flex items-center"><HiCheckCircle className="text-green-400 mr-2" /> Integração com ferramentas</li>
+              <li className="flex items-center"><HiCheckCircle className="text-green-400 mr-2" /> Analytics e métricas</li>
             </ul>
-            <div className="mt-6 text-center">
+            <div className="mt-auto pt-6 text-center border-t border-purple-500/20">
               <span className="text-2xl font-bold text-purple-400">A partir de R$ 500</span>
             </div>
           </div>
 
           {/* Aplicativos */}
-          <div className="bg-gradient-to-br from-green-600/20 to-green-800/20 backdrop-blur p-8 rounded-xl border border-green-500/30 hover:border-green-400/50 transition-all duration-300 transform hover:scale-105">
+          <div className="bg-gradient-to-br from-green-600/20 to-green-800/20 backdrop-blur p-8 rounded-xl border border-green-500/30 hover:border-green-400/50 transition-all duration-300 transform hover:scale-105 flex flex-col">
             <FaMobile className="text-5xl text-green-400 mb-6" />
             <h3 className="text-3xl font-bold mb-4">Aplicativos Web</h3>
             <p className="text-lg font-normal text-gray-300 mb-6">Sistemas e aplicações personalizadas para seu negócio. Inclui:</p>
-            <ul className="text-base font-normal text-gray-300 space-y-2">
+            <ul className="text-base font-normal text-gray-300 space-y-2 flex-grow">
               <li className="flex items-center"><HiCheckCircle className="text-green-400 mr-2" /> Sistema personalizado</li>
               <li className="flex items-center"><HiCheckCircle className="text-green-400 mr-2" /> Banco de dados</li>
               <li className="flex items-center"><HiCheckCircle className="text-green-400 mr-2" /> Painel administrativo</li>
               <li className="flex items-center"><HiCheckCircle className="text-green-400 mr-2" /> Funciona em qualquer dispositivo</li>
             </ul>
-            <div className="mt-6 text-center">
+            <div className="mt-auto pt-6 text-center border-t border-green-500/20">
               <span className="text-2xl font-bold text-green-400">Sob consulta</span>
+            </div>
+          </div>
+
+          {/* Criação de Mídias Digitais */}
+          <div className="bg-gradient-to-br from-orange-600/20 to-red-800/20 backdrop-blur p-8 rounded-xl border border-orange-500/30 hover:border-orange-400/50 transition-all duration-300 transform hover:scale-105 flex flex-col">
+            <FaVideo className="text-5xl text-orange-400 mb-6" />
+            <h3 className="text-3xl font-bold mb-4">Mídias Digitais</h3>
+            <p className="text-lg font-normal text-gray-300 mb-6">Criação de conteúdo visual para suas campanhas e redes sociais. Inclui:</p>
+            <ul className="text-base font-normal text-gray-300 space-y-2 flex-grow">
+              <li className="flex items-center"><HiCheckCircle className="text-green-400 mr-2" /> Banners promocionais</li>
+              <li className="flex items-center"><HiCheckCircle className="text-green-400 mr-2" /> Vídeos promocionais</li>
+              <li className="flex items-center"><HiCheckCircle className="text-green-400 mr-2" /> Posts para redes sociais</li>
+              <li className="flex items-center"><HiCheckCircle className="text-green-400 mr-2" /> Identidade visual</li>
+            </ul>
+            <div className="mt-auto pt-6 text-center border-t border-orange-500/20">
+              <span className="text-2xl font-bold text-orange-400">A partir de R$ 300</span>
             </div>
           </div>
         </div>
