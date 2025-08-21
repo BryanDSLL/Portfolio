@@ -68,7 +68,7 @@ function Services() {
     const ctx = gsap.context(() => {
       const masks = maskRefs.current;
 
-      masks.forEach((mask, index) => {
+      masks.forEach((mask) => {
         if (mask) {
           gsap.fromTo(
             mask,
