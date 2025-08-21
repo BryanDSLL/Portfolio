@@ -3,8 +3,8 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { HiChevronDoubleDown, HiCheckCircle, HiClock, HiLightBulb, HiDeviceTablet, HiChevronLeft, HiChevronRight, HiSun, HiMoon } from 'react-icons/hi2';
 import { FaWhatsapp, FaEnvelope, FaRocket, FaPalette, FaCode, FaMobile, FaVideo } from 'react-icons/fa';
-import LogoEscura from '../../dist/bz-escura.png';
-import LogoClara from '../../dist/bz-clara.png';
+import LogoClara from '../assets/bz-clara.png';
+import LogoEscura from '../assets/bz-escura.png';
 import emailjs from 'emailjs-com';
 
 import { projectsData } from '../data/projetos.js';
