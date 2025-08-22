@@ -1,6 +1,8 @@
+import { useNavigate } from 'react-router-dom';
 import Logo from '../assets/logo-branca.png'; 
 
 export default function Header() {
+  const navigate = useNavigate();
 
   const scrollToSection = (sectionId) => {
     const section = document.getElementById(sectionId);
@@ -10,7 +12,10 @@ export default function Header() {
         behavior: 'smooth'
       });
     }
+  };
 
+  const handleContratarClick = () => {
+    navigate('/servicos');
   };
 
   return (
@@ -21,7 +26,7 @@ export default function Header() {
           <span className="text-sm md:text-base font-semibold text-white">Bryan Zimbrão</span>
         </div>
 
-        <div className="flex md:flex-row space-x-2 md:space-x-12">
+        <div className="flex md:flex-row space-x-2 md:space-x-8 items-center">
           <button 
             onClick={() => scrollToSection('sobre-mim')} 
             className="text-white hover:text-gray-300 text-xs md:text-base transition-colors duration-200 font-medium cursor-pointer"
@@ -39,6 +44,12 @@ export default function Header() {
             className="text-white hover:text-gray-300 text-xs md:text-base transition-colors duration-200 font-medium cursor-pointer"
           >
             Projetos
+          </button>
+          <button 
+            onClick={handleContratarClick}
+            className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-xs md:text-base font-medium transition-all duration-300 transform hover:scale-105"
+          >
+            Contrate
           </button>
         </div>
       </nav>
