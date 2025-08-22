@@ -15,8 +15,7 @@ export const projectsData = [
       { name: "Node.js", color: "bg-green-600/20 text-green-400" }
     ],
     media: [
-      { type: "video", src: DentalCare, alt: "DentalCare Demo" },
-      { type: "image", src: BraIA, alt: "Bra.IA Interface" }
+      { type: "video", src: DentalCare, alt: "DentalCare Demo" }
     ],
     fallbackIcon: FaCode,
     fallbackColor: "from-blue-600/20 to-purple-600/20",
